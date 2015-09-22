@@ -1,2 +1,4 @@
+removed_sources:
+  syndication-15.08.0.tar.xz: 01f3d84ad37580d63bc7e573b1b57bf29430665f
 sources:
-  "syndication-15.08.0.tar.xz": 01f3d84ad37580d63bc7e573b1b57bf29430665f
+  syndication-15.08.1.tar.xz: 83d78cb73447aeb39c9067020c313f2659091c1a
