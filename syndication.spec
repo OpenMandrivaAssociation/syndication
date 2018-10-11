@@ -3,7 +3,7 @@
 %define devname %mklibname KF5Syndication -d
 
 Name: syndication
-Version:	 5.50.0
+Version:	 5.51.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -33,6 +33,7 @@ KDE RSS/Atom parser library
 %package -n %{libname}
 Summary: KDE RSS/Atom parser library
 Group: System/Libraries
+Requires: %{name} = %{EVRD}
 
 %description -n %{libname}
 KDE RSS/Atom parser library
@@ -54,6 +55,9 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %ninja_install -C build
+
+%files
+%{_sysconfdir}/xdg/syndication.categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
