@@ -3,14 +3,14 @@
 %define devname %mklibname KF5Syndication -d
 
 Name: syndication
-Version:	 5.56.0
+Version:	 5.57.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	2
+Release:	1
 Source0: http://download.kde.org/%{ftpdir}/frameworks/%(echo %{version}|cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: KDE RSS/Atom parser library
 URL: http://kde.org/
@@ -26,6 +26,8 @@ BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5Codecs)
 BuildRequires: cmake(KF5CoreAddons)
+# For QCH format docs
+BuildRequires: qt5-assistant
 
 %description
 KDE RSS/Atom parser library
@@ -45,6 +47,14 @@ Requires: %{libname} = %{EVRD}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
+
+%package -n %{name}-devel-docs
+Summary: Developer documentation for %{name} for use with Qt Assistant
+Group: Documentation
+Suggests: %{devname} = %{EVRD}
+
+%description -n %{name}-devel-docs
+Developer documentation for %{name} for use with Qt Assistant
 
 %prep
 %setup -q
@@ -67,3 +77,6 @@ Development files (Headers etc.) for %{name}.
 %{_libdir}/*.so
 %{_libdir}/cmake/*
 %{_libdir}/qt5/mkspecs/modules/*.pri
+
+%files -n %{name}-devel-docs
+%{_docdir}/qt5/*.{tags,qch}
