@@ -27,6 +27,7 @@ BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5Codecs)
 BuildRequires: cmake(KF5CoreAddons)
 # For QCH format docs
+BuildRequires: doxygen
 BuildRequires: qt5-assistant
 
 %description
