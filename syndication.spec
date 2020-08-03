@@ -3,7 +3,7 @@
 %define devname %mklibname KF5Syndication -d
 
 Name: syndication
-Version:	5.72.0
+Version:	5.73.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -68,7 +68,7 @@ Developer documentation for %{name} for use with Qt Assistant
 %ninja_install -C build
 
 %files
-%{_datadir}/qlogging-categories5/syndication.categories
+%{_datadir}/qlogging-categories5/syndication.*categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
