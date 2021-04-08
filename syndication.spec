@@ -10,7 +10,7 @@ Version:	5.81.0
 %else
 %define ftpdir stable
 %endif
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{ftpdir}/frameworks/%(echo %{version}|cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: KDE RSS/Atom parser library
 URL: http://kde.org/
